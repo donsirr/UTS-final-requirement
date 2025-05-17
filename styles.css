@@ -11,8 +11,8 @@ body {
 
 nav {
   display: flex;
+  flex-wrap: wrap;
   padding: 1rem 2rem;
-  font-family: "Work Sans", sans-serif;
   font-size: 0.8rem;
   text-transform: uppercase;
   background: #fff;
@@ -23,6 +23,7 @@ nav a {
   text-decoration: none;
   color: #333;
   position: relative;
+  white-space: nowrap;
 }
 
 nav a.active,
@@ -57,6 +58,8 @@ nav a:hover::after {
   margin-bottom: 1.5rem;
   text-decoration: none;
   transition: background-color 0.1s ease, color 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .card:hover {
@@ -78,4 +81,47 @@ nav a:hover::after {
 .card .content {
   font-size: 1rem;
   line-height: 1.5;
+}
+
+/* ============================
+   RESPONSIVE STYLES
+============================ */
+
+/* Tablets (≤ 900px) */
+@media screen and (max-width: 900px) {
+  .grid {
+    column-count: 2;
+    padding: 0 1rem;
+  }
+
+  nav {
+    font-size: 0.75rem;
+    padding: 1rem;
+  }
+
+  nav a {
+    margin-right: 1rem;
+  }
+}
+
+/* Mobile (≤ 600px) */
+@media screen and (max-width: 600px) {
+  .grid {
+    column-count: 1;
+    padding: 0 1rem;
+  }
+
+  .card {
+    font-size: 0.95rem;
+    padding: 1rem;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav a {
+    margin: 0.25rem 0;
+  }
 }
